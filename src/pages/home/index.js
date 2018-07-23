@@ -151,9 +151,6 @@ window.onload=function(){
             imgBoxs[oldIndex].style.opacity = '0';
             imgBoxs[nowIndex].style.opacity = '1';
             points[oldIndex].classList.remove('controlAnimate')
-            // for(var k=0;k<points.length;k++){
-            //     points[k].classList.remove('controlAnimate')
-            // }
             points[nowIndex].classList.add('controlAnimate')
         }
         
