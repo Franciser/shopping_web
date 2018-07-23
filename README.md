@@ -1,2 +1,3 @@
-通过一下地址访问：
-https://franciser.github.io/shopping_web/dist/
+通过以下地址访问：
+coding:http://FrancisChaner.coding.me/shopping_web
+github:https://franciser.github.io/shopping_web/dist/
