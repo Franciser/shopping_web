@@ -150,13 +150,13 @@ window.onload=function(){
 
             imgBoxs[oldIndex].style.opacity = '0';
             imgBoxs[nowIndex].style.opacity = '1';
-            // points[oldIndex].classList.remove('controlAnimate')
-            for(var k=0;k<points.length;k++){
-                points[k].classList.remove('controlAnimate')
-            }
+            points[oldIndex].classList.remove('controlAnimate')
+            // for(var k=0;k<points.length;k++){
+            //     points[k].classList.remove('controlAnimate')
+            // }
             points[nowIndex].classList.add('controlAnimate')
         }
-        timer = setInterval(autoPlay, 3000)
+        
         function autoPlay() {
             oldIndex = nowIndex;
             nowIndex++;
@@ -185,6 +185,19 @@ window.onload=function(){
                 imgBoxs[nowIndex].style.transition = 'opacity 1s ease-in-out'
             }
         })
+        //通过判断轮播图片的高度是否为0来确定是否加载定时器
+        var n=imgs.length;
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].addEventListener('load',function(){
+                if (this.offsetHeight !== 0) {
+                    n--;
+                    if(n===0){
+                        timer = setInterval(autoPlay, 3000)
+                    }
+                }
+            })
+        }
+
 
 
         function arrowFn() {
