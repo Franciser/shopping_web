@@ -197,6 +197,7 @@ window.onload=function(){
                 arrowRight.classList.add('arrow_active')
             })
             carousel.addEventListener('mouseleave', function () {
+                clearInterval(timer)
                 timer = setInterval(autoPlay, 2000)
                 // arrowLeft.style.display = "none"
                 // arrowRight.style.display = "none"
