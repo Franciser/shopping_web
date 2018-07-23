@@ -447,7 +447,7 @@ window.onload=function(){
         })
 
         //初始化时先判断屏幕宽度来决定显示大小
-        setElementSize();
+        // setElementSize();
         function setElementSize() {
             //得到屏幕的宽度
             var windowWidth = document.documentElement.clientWidth;
@@ -456,19 +456,21 @@ window.onload=function(){
                     hot_kind_content[i].style.width = '1200px'
                     hot_kind_left[i].querySelector('a').style.width = '550px';
                     hot_kind_right[i].querySelector('a').style.width = '550px';
-
                 }
-                moreProduct_wrap_content.style.width = '1240px';
-                moreProduct_wrap_content.style.paddingLeft = '40px';
-                hot_phone_title.style.width = "1200px"
-                hot_laptop_title.style.width = "1200px"
-                moreProduct_title.style.width = "1200px"
+                // hot_phone_title.style.width = "1200px"
+                // hot_laptop_title.style.width = "1200px"
                 returnTop.style.marginLeft = '600px'
-                for (var k = 0; k < moreProduct_item.length; k++) {
+                // moreProduct_title.style.width = "1200px"
 
-                    moreProduct_item[k].querySelector('a').style.width = '260px';
-                    moreProduct_item[k].style.marginRight = '40px';
-                }
+                // moreProduct_wrap_content.style.width = '1200px';
+                // for (var k = 0; k < moreProduct_item.length; k++) {
+
+                //     moreProduct_item[k].querySelector('a').style.width = '245px';
+                //     moreProduct_item[k].style.marginRight = '60px';
+                // }
+                // for (var m = 3; m <= moreProduct_item.length; m += 4) {
+                //     moreProduct_item[m].style.marginRight = '0px';
+                // }
             } else {
                 for (var i = 0; i < hot_kind_content.length; i++) {
                     hot_kind_content[i].style.width = '1500px'
@@ -477,13 +479,16 @@ window.onload=function(){
                 }
 
                 returnTop.style.marginLeft = '800px'
-                moreProduct_wrap_content.style.width = '1600px';
-                moreProduct_wrap_content.style.paddingLeft = '100px';
-                for (var k = 0; k < moreProduct_item.length; k++) {
 
-                    moreProduct_item[k].querySelector('a').style.width = '290px';
-                    moreProduct_item[k].style.marginRight = '100px';
-                }
+                // moreProduct_wrap_content.style.width = '1500px';
+                // for (var k = 0; k < moreProduct_item.length; k++) {
+
+                //     moreProduct_item[k].querySelector('a').style.width = '290px';
+                //     moreProduct_item[k].style.marginRight = '100px';
+                // }
+                // for (var m = 3; m <= moreProduct_item.length;m+=4) {
+                //     moreProduct_item[m].style.marginRight = '0px';
+                // }
             }
 
         }
