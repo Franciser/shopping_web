@@ -30,9 +30,6 @@ window.onload = function () {
     var imgBox = document.querySelector('.detail_option_left_imgBox');
     var controlPoints = document.querySelector('.detail_option_left_controlPoints').children;
     var detail_option_right_count_shop = document.querySelector('.detail_option_right_count_shop');
-   
-
-    
 
     function detailIntroduceFn() {
         var windowHeight = document.documentElement.clientHeight;
@@ -54,8 +51,6 @@ window.onload = function () {
 
         })
     }
-
-    
 
     function imgViewFn() {
 
