@@ -451,7 +451,7 @@ input::-webkit-input-placeholder {
 .wrap .detail_content .detail_content_arguments .detail_arguments .detail_arguments_top {
   width: 100%;
   text-align: center;
-  background-color: #f4f9fb;
+  background-color: #f7f7f7;
 }
 .wrap .detail_content .detail_content_arguments .detail_arguments .detail_arguments_top ul li {
   float: left;
@@ -475,7 +475,7 @@ input::-webkit-input-placeholder {
   margin-top: -30px;
 }
 .wrap .detail_content .detail_content_arguments .detail_arguments .detail_arguments_bottom {
-  background-color: #dde2e4;
+  background-color: #ececec;
 }
 .wrap .detail_content .detail_content_arguments .detail_arguments .detail_arguments_bottom div {
   box-sizing: border-box;
@@ -581,4 +581,4 @@ input::-webkit-input-placeholder {
   }
 }
 
-/*# sourceMappingURL=detail.e112903.css.map*/
+/*# sourceMappingURL=detail.7aed547.css.map*/
