@@ -1,16 +1,9 @@
 /* eslint-disable */
 import './index.less';
 
-var imgArr = [
-    { src: require('../../img/01.jpg'), href: './detail.html' },
-    { src: require('../../img/02.jpg'), href: './detail.html' },
-    { src: require('../../img/03.jpg'), href: './detail.html' },
-    { src: require('../../img/04.jpg'), href: './detail.html' },
-]
-var carousel_wrap = document.querySelector('.carousel_wrap');
-var arrowClassName = { left: "icon-fanhui", right: "icon-gengduo" }
 
-carouselFn(carousel_wrap, imgArr, arrowClassName);
+
+carouselFn();
 
 window.onload=function(){
     
@@ -70,53 +63,16 @@ window.onload=function(){
 
 
 //轮播函数
-function carouselFn(wrap, imgArr, arrowClassName) {
-    var carousel = document.createElement('div');
-    var carousel_control = document.createElement('ul');
-    var arrowLeft = document.createElement('div');
-    var arrowRight = document.createElement('div');
-    var styleNode = document.createElement('style');
-    var length = imgArr.length;
-    var str = ''
-    var controlStr = ''
-    var styleStr = ''
-    //给左右箭头各添加类名
-    arrowLeft.classList.add('arrowLeft')
-    arrowRight.classList.add('arrowRight')
-    //给左右箭头各添加html结构，然后将传入iconfont字体图标的类名
-    arrowLeft.innerHTML = '<i class="iconfont ' + arrowClassName.left + '"></i>'
-    arrowRight.innerHTML = '<i class="iconfont ' + arrowClassName.right + '"></i>'
-    carousel.classList.add('carousel');
-    //遍历出来数组中的图片对应的地址和点击链接地址
-    imgArr.forEach(function (item, index) {
-        //生成轮播图结构
-        str += '<a href="' + item.href + '"><img src="' + item.src + '" alt=""></a>'
-        //生成控制圆点结构
-        controlStr += '<li></li>'
-    })
 
-    // window.document.head.appendChild(styleNode)
-    //将轮播图结构赋给轮播图容器
-    carousel.innerHTML = str;
-    //将控制小圆点结构赋给控制容器
-    carousel_control.innerHTML = controlStr;
-    //把控制容器追加进轮播图容器
-    carousel.appendChild(carousel_control);
-    //将左箭头追加进轮播图容器
-    carousel.appendChild(arrowLeft);
-    //将右箭头追加进容器
-    carousel.appendChild(arrowRight);
-    //把整个轮播容器追加进外面的大盒子
-    wrap.appendChild(carousel)
-
+function carouselFn(imgArr) {
+    var carousel = document.querySelector('.carousel')
+    var carousel_control = carousel.querySelector('ul')
     //得到所有轮播图
     var imgs = carousel.querySelectorAll('a>img')
-    //当第一张轮播图加载完成后
-    carousel.querySelectorAll('a>img')[0].onload = function () {
-        //得到所有控制点
-        var points = carousel_control.querySelectorAll('li');
-        //给第一个控制点加动画
-        points[0].classList.add('controlAnimate')
+
+    var length = imgs.length;
+    
+    
         //得到当前屏幕宽度
         var windowWidth = document.documentElement.clientWidth;
         //让所有轮播图的宽度等于屏幕宽度//并且设置最大最小宽度
@@ -130,7 +86,6 @@ function carouselFn(wrap, imgArr, arrowClassName) {
         }
         //调用gitImgSize函数，得到第一张轮播图的宽度高度，并赋值给轮播图容器
         getImgSize()
-    }
 
     //窗口改变大小时对应的函数
     function onResize() {
@@ -201,17 +156,17 @@ function carouselFn(wrap, imgArr, arrowClassName) {
         }
     })
     //通过判断轮播图片的高度是否为0来确定是否加载定时器
-    var n = imgs.length;
-    for (var i = 0; i < imgs.length; i++) {
-        imgs[i].addEventListener('load', function () {
-            if (this.offsetHeight !== 0) {
-                n--;
-                if (n === 0) {
+    // var n = imgs.length;
+    // for (var i = 0; i < imgs.length; i++) {
+    //     imgs[i].addEventListener('load', function () {
+    //         if (this.offsetHeight !== 0) {
+    //             n--;
+    //             if (n === 0) {
                     timer = setInterval(autoPlay, 3000)
-                }
-            }
-        })
-    }
+    //             }
+    //         }
+    //     })
+    // }
 
 
 
@@ -464,6 +419,7 @@ function returnTopFn() {
     })
 }
 
+//窗口缩放函数
 function windowResize() {
     var hot_kind_content = document.querySelectorAll('.hot_kind_content');
     var hot_kind_left = document.querySelectorAll('.hot_kind_left');
@@ -528,6 +484,7 @@ function windowResize() {
 
 }
 
+//弹出状态栏
 function statusBarFn() {
     var hot_phone_wrap = document.querySelector('.hot_phone_wrap');
     var carousel = document.querySelector('.carousel_wrap>.carousel');

@@ -229,6 +229,7 @@ input::-webkit-input-placeholder {
 .wrap .detail_content .detail_content_option .detail_option .detail_option_left .detail_option_left_img {
   width: 450px;
   height: 450px;
+  margin-top: 40px;
   overflow: hidden;
 }
 .wrap .detail_content .detail_content_option .detail_option .detail_option_left .detail_option_left_img .detail_option_left_imgBox {
@@ -279,19 +280,22 @@ input::-webkit-input-placeholder {
 }
 .wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_colorBox,
 .wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_versionBox,
-.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_priceBox {
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_priceBox,
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_address {
   height: 100px;
 }
 .wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_colorBox h2,
 .wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_versionBox h2,
-.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_priceBox h2 {
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_priceBox h2,
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_address h2 {
   font-size: 18px;
   font-weight: normal;
   margin-bottom: 10px;
 }
 .wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_colorBox button,
 .wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_versionBox button,
-.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_priceBox button {
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_priceBox button,
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_address button {
   width: 120px;
   height: 45px;
   margin-right: 10px;
@@ -302,7 +306,8 @@ input::-webkit-input-placeholder {
 }
 .wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_colorBox .detail_option_active,
 .wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_versionBox .detail_option_active,
-.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_priceBox .detail_option_active {
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_priceBox .detail_option_active,
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_address .detail_option_active {
   color: #03b2ef;
   border: 1px solid #03b2ef;
 }
@@ -334,8 +339,13 @@ input::-webkit-input-placeholder {
   font-size: 25px;
   color: #03b2ef;
 }
-.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_countBox {
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_address {
   margin-top: 20px;
+}
+.wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_address select {
+  border: 1px solid #03b2ef;
+  min-width: 100px;
+  height: 30px;
 }
 .wrap .detail_content .detail_content_option .detail_option .detail_option_right .detail_option_right_countBox .detail_option_right_count_shop {
   float: left;
@@ -560,7 +570,7 @@ input::-webkit-input-placeholder {
 }
 .wrap .returnTop i {
   font-size: 60px;
-  color: #03b2ef;
+  color: #cacaca;
 }
 @keyframes fromLeft {
   from {
@@ -581,4 +591,4 @@ input::-webkit-input-placeholder {
   }
 }
 
-/*# sourceMappingURL=detail.7aed547.css.map*/
+/*# sourceMappingURL=detail.91c2c06.css.map*/

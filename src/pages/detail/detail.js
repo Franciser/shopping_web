@@ -258,12 +258,82 @@ window.onload = function () {
             }, 10)
         })
     }
-    
+
+    function addressFn(){
+        var sheng = document.querySelector('#sheng')
+        var shi = document.querySelector('#shi')
+        var xian = document.querySelector('#xian')
+
+        //设置当前选中的省和市的序号
+        var sheng_key = 0;
+        var shi_key = 0;
+
+        var sheng_arr = ['四川省', '广东省', '江苏省'];
+        var shi_arr = [['成都市', '资阳市', '眉山市'], ['广州市', '深圳市', '东莞市'], ['南京市', '无锡市', '苏州市']];
+        var xian_arr = [
+            [
+                ['郫都区', '温江区', '双流县'],
+                ['雁江区', '乐至县', '安岳县'],
+                ['东坡区', '仁寿县', '彭山县']
+            ],
+            [
+                ['越秀区', '天河区', '白云县'],
+                ['福田区', '南山区', '罗湖区'],
+                ['莞城区', '东城县', '南城县']
+            ],
+            [
+                ['玄武区', '秦淮区', '建邺县'],
+                ['锡山区', '惠山区', '滨湖区'],
+                ['吴中区', '姑苏县', '吴江县']
+            ],
+
+        ]
+
+        for (var i = 0; i < sheng_arr.length; i++) {
+            var new_option = document.createElement('option');
+            new_option.value = sheng_arr[i];
+            new_option.innerText = sheng_arr[i];
+            sheng.appendChild(new_option)
+        }
+
+
+        sheng.addEventListener('change', function () {
+
+            shi.options.length = 1
+            xian.options.length = 1;
+            var arr = sheng_arr.filter(function (item, index) {
+                if (item == sheng.value) {
+                    sheng_key = index
+                }
+            })
+            for (var i = 0; i < shi_arr[sheng_key].length; i++) {
+                var new_option = document.createElement('option');
+                new_option.value = shi_arr[sheng_key][i];
+                new_option.innerText = shi_arr[sheng_key][i];
+                shi.appendChild(new_option)
+            }
+        })
+        shi.addEventListener('change', function () {
+            xian.options.length = 1;
+            var arr = shi_arr[sheng_key].filter(function (item, index) {
+                if (item == shi.value) {
+                    shi_key = index
+                }
+            })
+            for (var i = 0; i < xian_arr[sheng_key][shi_key].length; i++) {
+                var new_option = document.createElement('option');
+                new_option.value = xian_arr[sheng_key][shi_key][i];
+                new_option.innerText = xian_arr[sheng_key][shi_key][i];
+                xian.appendChild(new_option)
+            }
+        })
+    }
     countFn();
     detailIntroduceFn();
     imgViewFn();
     totalPriceFn();
     addToCart();
+    addressFn();
     navTab();
     returnTopFn();
 }
