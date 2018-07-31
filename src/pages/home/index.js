@@ -3,7 +3,7 @@ import './index.less';
 
 
 
-carouselFn();
+
 
 window.onload=function(){
     
@@ -52,7 +52,7 @@ window.onload=function(){
 
     
     
-    
+    carouselFn();
     brandWallFn()
     moreProductFn()
     navTab()
