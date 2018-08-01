@@ -6,52 +6,6 @@ import './index.less';
 
 
 window.onload=function(){
-    
-
-    //切换tab栏的标签
-    function navTab() {
-        var navTags = document.querySelectorAll('.header_middle_nav>ul>li');
-        //分别获得品牌 手机 笔记本的标签
-        var brand_tag = navTags[0]
-        var brand_tag_title = brand_tag.querySelector('a')
-        var phone_tag = navTags[1]
-        var phone_tag_title = phone_tag.querySelector('a')
-        var laptop_tag = navTags[2]
-        var laptop_tag_title = laptop_tag.querySelector('a')
-        //分别获得对应的内容块
-        var nav_brand = document.querySelector('.nav_brand');
-        var nav_phone = document.querySelector('.nav_phone')
-        var nav_laptop = document.querySelector('.nav_laptop')
-        brand_tag.addEventListener('mouseover', function () {
-            brand_tag_title.style.color = "black";
-            nav_brand.style.display = 'block'
-        })
-        brand_tag.addEventListener('mouseout', function () {
-            brand_tag_title.style.color = "#8f8f8f";
-            nav_brand.style.display = 'none'
-        })
-        phone_tag.addEventListener('mouseover', function () {
-            phone_tag_title.style.color = "black";
-            nav_phone.style.display = 'block'
-        })
-        phone_tag.addEventListener('mouseout', function () {
-            phone_tag_title.style.color = "#8f8f8f";
-            nav_phone.style.display = 'none'
-        })
-        laptop_tag.addEventListener('mouseover', function () {
-            laptop_tag_title.style.color = "black";
-            nav_laptop.style.display = 'block'
-        })
-        laptop_tag.addEventListener('mouseout', function () {
-            laptop_tag_title.style.color = "#8f8f8f";
-            nav_laptop.style.display = 'none'
-        })
-    }
-
-    
-
-    
-    
     carouselFn();
     brandWallFn()
     moreProductFn()
@@ -61,10 +15,48 @@ window.onload=function(){
     windowResize()
 }
 
+//切换tab栏的标签
+function navTab() {
+    var navTags = document.querySelectorAll('.header_middle_nav>ul>li');
+    //分别获得品牌 手机 笔记本的标签
+    var brand_tag = navTags[0]
+    var brand_tag_title = brand_tag.querySelector('a')
+    var phone_tag = navTags[1]
+    var phone_tag_title = phone_tag.querySelector('a')
+    var laptop_tag = navTags[2]
+    var laptop_tag_title = laptop_tag.querySelector('a')
+    //分别获得对应的内容块
+    var nav_brand = document.querySelector('.nav_brand');
+    var nav_phone = document.querySelector('.nav_phone')
+    var nav_laptop = document.querySelector('.nav_laptop')
+    brand_tag.addEventListener('mouseover', function () {
+        brand_tag_title.style.color = "black";
+        nav_brand.style.display = 'block'
+    })
+    brand_tag.addEventListener('mouseout', function () {
+        brand_tag_title.style.color = "#8f8f8f";
+        nav_brand.style.display = 'none'
+    })
+    phone_tag.addEventListener('mouseover', function () {
+        phone_tag_title.style.color = "black";
+        nav_phone.style.display = 'block'
+    })
+    phone_tag.addEventListener('mouseout', function () {
+        phone_tag_title.style.color = "#8f8f8f";
+        nav_phone.style.display = 'none'
+    })
+    laptop_tag.addEventListener('mouseover', function () {
+        laptop_tag_title.style.color = "black";
+        nav_laptop.style.display = 'block'
+    })
+    laptop_tag.addEventListener('mouseout', function () {
+        laptop_tag_title.style.color = "#8f8f8f";
+        nav_laptop.style.display = 'none'
+    })
+}
 
 //轮播函数
-
-function carouselFn(imgArr) {
+function carouselFn() {
     var carousel = document.querySelector('.carousel')
     var carousel_control = carousel.querySelector('ul')
     //得到所有轮播图
@@ -73,8 +65,8 @@ function carouselFn(imgArr) {
     var length = imgs.length;
     
     
-        //得到当前屏幕宽度
-        var windowWidth = document.documentElement.clientWidth;
+        // //得到当前屏幕宽度
+        var windowWidth = document.documentElement.offsetWidth+17;
         //让所有轮播图的宽度等于屏幕宽度//并且设置最大最小宽度
         for (var i = 0; i < length; i++) {
             //设置最大宽度1920
@@ -127,6 +119,7 @@ function carouselFn(imgArr) {
         points[nowIndex].classList.add('controlAnimate')
     }
 
+    //自动轮播
     function autoPlay() {
         oldIndex = nowIndex;
         nowIndex++;
@@ -491,7 +484,6 @@ function statusBarFn() {
     var header_slide = document.querySelector('.header_slide');
 
     //当第一张图加载完的时候就有了高度
-    carousel.querySelectorAll('a')[0].querySelector('img').addEventListener('load', function () {
         var hot_phone_wrap_to_top = hot_phone_wrap.offsetTop;
         // console.log(hot_phone_wrap_to_top);
 
@@ -506,6 +498,5 @@ function statusBarFn() {
                 header_slide.style.top = '-200px';
             }
         })
-    })
 
 }
