@@ -66,7 +66,7 @@ function carouselFn() {
     
     
         // //得到当前屏幕宽度
-        var windowWidth = document.documentElement.offsetWidth+17;
+        var windowWidth = document.documentElement.clientWidth;
         //让所有轮播图的宽度等于屏幕宽度//并且设置最大最小宽度
         for (var i = 0; i < length; i++) {
             //设置最大宽度1920
@@ -75,6 +75,7 @@ function carouselFn() {
             imgs[i].style.minWidth = 1366 + 'px';
             //设置轮播图宽度为当前屏幕宽度
             imgs[i].style.width = windowWidth + 'px';
+            
         }
         //调用gitImgSize函数，得到第一张轮播图的宽度高度，并赋值给轮播图容器
         getImgSize()
@@ -207,8 +208,6 @@ function carouselFn() {
         })
     }
 
-    arrowFn();
-
     function getImgSize() {
         var imgs = carousel.querySelectorAll('a>img')
 
@@ -219,6 +218,9 @@ function carouselFn() {
         carousel.style.width = imgWidth + 'px';
         carousel.style.height = imgHeight + 'px';
     }
+    
+    //执行箭头点击函数
+    arrowFn();
 
     //执行缩放窗口大小时动态改变轮播图及容器宽高
     onResize()
@@ -417,11 +419,9 @@ function windowResize() {
     var hot_kind_content = document.querySelectorAll('.hot_kind_content');
     var hot_kind_left = document.querySelectorAll('.hot_kind_left');
     var hot_kind_right = document.querySelectorAll('.hot_kind_right');
-    var hot_phone_title = document.querySelector('.hot_phone_title')
-    var hot_laptop_title = document.querySelector('.hot_laptop_title')
-    var moreProduct_title = document.querySelector('.moreProduct_title');
-    var moreProduct_wrap_content = document.querySelector('.moreProduct_wrap_content');
-    var moreProduct_item = moreProduct_wrap_content.querySelectorAll('.moreProduct_item');
+   
+
+   
     var returnTop = document.querySelector('.returnTop');
     window.addEventListener('resize', function () {
         setElementSize();
@@ -438,20 +438,9 @@ function windowResize() {
                 hot_kind_left[i].querySelector('a').style.width = '550px';
                 hot_kind_right[i].querySelector('a').style.width = '550px';
             }
-            // hot_phone_title.style.width = "1200px"
-            // hot_laptop_title.style.width = "1200px"
+           
             returnTop.style.marginLeft = '600px'
-            // moreProduct_title.style.width = "1200px"
-
-            // moreProduct_wrap_content.style.width = '1200px';
-            // for (var k = 0; k < moreProduct_item.length; k++) {
-
-            //     moreProduct_item[k].querySelector('a').style.width = '245px';
-            //     moreProduct_item[k].style.marginRight = '60px';
-            // }
-            // for (var m = 3; m <= moreProduct_item.length; m += 4) {
-            //     moreProduct_item[m].style.marginRight = '0px';
-            // }
+            
         } else {
             for (var i = 0; i < hot_kind_content.length; i++) {
                 hot_kind_content[i].style.width = '1500px'
@@ -461,15 +450,7 @@ function windowResize() {
 
             returnTop.style.marginLeft = '800px'
 
-            // moreProduct_wrap_content.style.width = '1500px';
-            // for (var k = 0; k < moreProduct_item.length; k++) {
-
-            //     moreProduct_item[k].querySelector('a').style.width = '290px';
-            //     moreProduct_item[k].style.marginRight = '100px';
-            // }
-            // for (var m = 3; m <= moreProduct_item.length;m+=4) {
-            //     moreProduct_item[m].style.marginRight = '0px';
-            // }
+           
         }
 
     }
