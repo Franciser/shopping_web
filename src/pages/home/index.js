@@ -226,56 +226,143 @@ window.onload=function(){
         var refreshIcon = refreshBtn.querySelector('a>.img_refresh');
         //得到所有品牌容器
         var brandAll = document.querySelectorAll('.brand_wall_3d');
+        var brandFront=document.querySelectorAll('.brand_wall_front');
+        var brandBack=document.querySelectorAll('.brand_wall_back');
         var length = brandAll.length;
         var flag = true;
         var isEnd = true;
         refreshBtn.addEventListener('click', function () {
 
-            if (isEnd) {
-                //先让isEnd变为false；说明动画还没结束，不能开启下次翻转
-                isEnd = false;
-                //用来判读是从左转到右还是右到左
-                if (flag) {
-                    //用来设置延迟时间
-                    var delayTime = 0;
-                    refreshIcon.style.transition = 'transform .5s ease-in-out background .3s ease-in-out'
-                    refreshIcon.style.transform = 'rotate(' + 360 * clickIndex + 'deg)'
 
-                    for (var i = 0; i < length; i++) {
-
-                        brandAll[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
-                        brandAll[i].style.transform = 'rotateY(' + 180 + 'deg)'
-                        delayTime += 0.2;
-                    }
-                    //等所有动画执行完后再让isEnd为true
-                    setTimeout(function () {
-                        isEnd = true;
-                    }, delayTime * 1000)
-
-
-                } else {
-                    //用来设置延迟时间
-                    var delayTime = 0;
-                    refreshIcon.style.transition = 'transform .5s ease-in-out background .3s ease-in-out'
-                    refreshIcon.style.transform = 'rotate(' + 360 * clickIndex + 'deg)'
-
-                    for (var i = length - 1; i >= 0; i--) {
-
-                        brandAll[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
-                        brandAll[i].style.transform = 'rotateY(' + 0 + 'deg)'
-                        delayTime += 0.2;
-                    }
-                    //等所有动画执行完后再让isEnd为true
-                    setTimeout(function () {
-                        isEnd = true;
-                    }, delayTime * 1000)
+                var userAgent = navigator.userAgent;
+                if (!!window.ActiveXObject || "ActiveXObject" in window||userAgent.indexOf("Edge")>-1)
+                    ieEdge_browser();
+                else 
+                {
+                    other_browser();
                 }
 
-                flag = !flag;
-                clickIndex++;
 
-            } else {
-                return
+            // alert(IEVersion())
+            function other_browser(){
+                if (isEnd) {
+                    //先让isEnd变为false；说明动画还没结束，不能开启下次翻转
+                    isEnd = false;
+                    //用来判读是从左转到右还是右到左
+                    if (flag) {
+                        //用来设置延迟时间
+                        var delayTime = 0;
+                        refreshIcon.style.transition = 'transform .5s ease-in-out background .3s ease-in-out'
+                        refreshIcon.style.transform = 'rotate(' + 360 * clickIndex + 'deg)'
+
+                        for (var i = 0; i < length; i++) {
+
+                            brandAll[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
+                            brandAll[i].style.transform = 'rotateY(' + 180 + 'deg)'
+                            // brandBack[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
+                            // brandBack[i].style.transform="rotateY(0deg)"
+                            delayTime += 0.2;
+                        }
+                        //等所有动画执行完后再让isEnd为true
+                        setTimeout(function () {
+                            isEnd = true;
+                        }, delayTime * 1000)
+
+
+                    } else {
+                        //用来设置延迟时间
+                        var delayTime = 0;
+                        refreshIcon.style.transition = 'transform .5s ease-in-out background .3s ease-in-out'
+                        refreshIcon.style.transform = 'rotate(' + 360 * clickIndex + 'deg)'
+
+                        for (var i = length - 1; i >= 0; i--) {
+
+                            brandAll[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
+                            brandAll[i].style.transform = 'rotateY(' + 0 + 'deg)'
+                            // brandFront[i].style.transform = "rotateY(180deg)"
+                            delayTime += 0.2;
+                        }
+                        //等所有动画执行完后再让isEnd为true
+                        setTimeout(function () {
+                            isEnd = true;
+                        }, delayTime * 1000)
+                    }
+
+                    flag = !flag;
+                    clickIndex++;
+
+                } else {
+                    return
+                }
+            }
+            
+            function ieEdge_browser() {
+                if (isEnd) {
+                    //先让isEnd变为false；说明动画还没结束，不能开启下次翻转
+                    isEnd = false;
+                    //用来判读是从左转到右还是右到左
+                    if (flag) {
+                        //用来设置延迟时间
+                        var delayTime = 0;
+                        refreshIcon.style.transition = 'transform .5s ease-in-out background .3s ease-in-out'
+                        refreshIcon.style.transform = 'rotate(' + 360 * clickIndex + 'deg)'
+
+                        for (var i = 0; i < length; i++) {
+
+                            // brandAll[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
+                            // brandAll[i].style.transform = 'rotateY(' + 180 + 'deg)'
+                            // brandBack[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
+                            brandBack[i].style.transform="rotateY(0deg)"
+                            brandBack[i].style.zIndex="2";
+                            brandFront[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
+                            brandFront[i].style.transform="translateY(-100%)"
+                            delayTime += 0.2;
+                        }
+                        //等所有动画执行完后再让isEnd为true
+                        setTimeout(function () {
+                            isEnd = true;
+                            for(var k=0;k<length;k++){
+                                brandFront[k].style.zIndex="1";
+                                brandFront[k].style.transition = 'none'
+                                brandFront[k].style.transform = "translateY(0%)"
+                            }
+                            
+                        }, delayTime * 1000)
+
+
+                    } else {
+                        //用来设置延迟时间
+                        var delayTime = 0;
+                        refreshIcon.style.transition = 'transform .5s ease-in-out background .3s ease-in-out'
+                        refreshIcon.style.transform = 'rotate(' + 360 * clickIndex + 'deg)'
+
+                        for (var i = length - 1; i >= 0; i--) {
+
+                            // brandAll[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
+                            // brandAll[i].style.transform = 'rotateY(' + 0 + 'deg)'
+                            
+                            brandBack[i].style.transition = '.5s ease-in-out ' + delayTime + 's'
+                            brandBack[i].style.transform = "translateY(-100%)"
+                            delayTime += 0.2;
+                        }
+                        //等所有动画执行完后再让isEnd为true
+                        setTimeout(function () {
+                            isEnd = true;
+                            for (var k = 0; k < length; k++) {
+                                brandFront[k].style.zIndex = "2";
+                                brandBack[k].style.zIndex = "1";
+                                brandBack[k].style.transition = 'none'
+                                brandBack[k].style.transform = "translateY(0%)"
+                            }
+                        }, delayTime * 1000)
+                    }
+
+                    flag = !flag;
+                    clickIndex++;
+
+                } else {
+                    return
+                }
             }
         })
 
@@ -382,7 +469,7 @@ window.onload=function(){
 
         var timer = null;
         window.addEventListener('scroll', function () {
-            var scrollTop = document.documentElement.scrollTop;
+            var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
             if (scrollTop >= 100) {
                 returnTop.style.display = "block";
             } else {
@@ -392,7 +479,7 @@ window.onload=function(){
 
         returnTop.addEventListener('click', function () {
             clearInterval(timer)
-            var scrollTop = document.documentElement.scrollTop;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             var scrollValue = scrollTop;
             timer = setInterval(function () {
                 scrollValue -= Math.ceil(scrollValue / 10);
@@ -401,6 +488,7 @@ window.onload=function(){
                     clearInterval(timer)
                 }
                 document.documentElement.scrollTop = scrollValue;
+                document.body.scrollTop=scrollValue;
             }, 10)
         })
     }
@@ -454,7 +542,7 @@ window.onload=function(){
 
 
         window.addEventListener('scroll', function () {
-            var scrollTop = document.documentElement.scrollTop;
+            var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
             if (scrollTop >= hot_phone_wrap_to_top) {
                 // header_slide.style.animation ="headerFromTop .5s linear forwards"
                 header_slide.style.top = "0";

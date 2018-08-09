@@ -26,9 +26,23 @@ a{
   text-decoration: none;
 }
 
-input::-webkit-input-placeholder{
-  font-size:14px;
-  color:#8f8f8f;
+
+
+::-webkit-input-placeholder {
+    font-size:14px;
+    color:#8f8f8f;
+}
+:-moz-placeholder {
+    font-size:14px;
+    color:#8f8f8f;
+}
+::-moz-placeholder { 
+    font-size:14px;
+    color:#8f8f8f;
+}
+:-ms-input-placeholder { 
+    font-size:14px;
+    color:#8f8f8f;
 }
 
 .clearfix:after{
@@ -292,6 +306,7 @@ input::-webkit-input-placeholder{
                     width:210px;
                     height:80px;
                     float:left;
+                    // font-size:0;
                     // overflow:hidden;
                     transition:.5s ease-in-out;
                     .search_icon{
@@ -305,13 +320,11 @@ input::-webkit-input-placeholder{
                         outline: none;
                         border:none;
                         width:100%;
-                        line-height:25px;
-                        border-bottom: 1px solid #8f8f8f;
+                        height:30px;
+                        line-height:30px;
+                        background-color: #ebecec;
                         box-sizing: border-box;
                         padding-left:10px;
-                        &:focus{
-                            border-bottom:1px solid #03b2ef;
-                        }
                     }
 
                     input:focus +.search_hot{
@@ -323,7 +336,7 @@ input::-webkit-input-placeholder{
                     .search_hot{
                         display: none;
                         position: absolute;
-                        top:50px;
+                        top:60px;
                         width:210px;
                         height:120px;
                         background-color: #fff;
@@ -490,8 +503,12 @@ input::-webkit-input-placeholder{
                             width:150px;
                             height:150px;
                         }
+                        .brand_wall_front{
+                            z-index: 2;
+                        }
                         .brand_wall_back{
                             transform:rotateY(180deg);
+                            z-index:1;
                         }
                     }
                     .brand_wall_mask{

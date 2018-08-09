@@ -17,7 +17,19 @@ ul {
 a {
   text-decoration: none;
 }
-input::-webkit-input-placeholder {
+::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #8f8f8f;
+}
+:-moz-placeholder {
+  font-size: 14px;
+  color: #8f8f8f;
+}
+::-moz-placeholder {
+  font-size: 14px;
+  color: #8f8f8f;
+}
+:-ms-input-placeholder {
   font-size: 14px;
   color: #8f8f8f;
 }
@@ -284,13 +296,11 @@ input::-webkit-input-placeholder {
   outline: none;
   border: none;
   width: 100%;
-  line-height: 25px;
-  border-bottom: 1px solid #8f8f8f;
+  height: 30px;
+  line-height: 30px;
+  background-color: #ebecec;
   box-sizing: border-box;
   padding-left: 10px;
-}
-.wrap .header .header_wrap .header_right .searchBar input:focus {
-  border-bottom: 1px solid #03b2ef;
 }
 .wrap .header .header_wrap .header_right .searchBar input:focus + .search_hot {
   display: block;
@@ -298,7 +308,7 @@ input::-webkit-input-placeholder {
 .wrap .header .header_wrap .header_right .searchBar .search_hot {
   display: none;
   position: absolute;
-  top: 50px;
+  top: 60px;
   width: 210px;
   height: 120px;
   background-color: #fff;
@@ -437,8 +447,12 @@ input::-webkit-input-placeholder {
   width: 150px;
   height: 150px;
 }
+.wrap .content .brand_wall_wrap .brand_wall li .brand_wall_3d .brand_wall_front {
+  z-index: 2;
+}
 .wrap .content .brand_wall_wrap .brand_wall li .brand_wall_3d .brand_wall_back {
   transform: rotateY(180deg);
+  z-index: 1;
 }
 .wrap .content .brand_wall_wrap .brand_wall li .brand_wall_mask {
   transition: 0.5s ease-in-out;
@@ -778,4 +792,4 @@ input::-webkit-input-placeholder {
   color: #cacaca;
 }
 
-/*# sourceMappingURL=index.9595fc8.css.map*/
+/*# sourceMappingURL=index.86ffbfc.css.map*/

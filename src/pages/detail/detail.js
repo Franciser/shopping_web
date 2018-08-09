@@ -37,7 +37,7 @@ window.onload = function () {
         var detail_introduce_text_animate = document.querySelectorAll('.detail_introduce_text_animate');
 
         window.addEventListener('scroll', function () {
-            var scrollTop = document.documentElement.scrollTop;
+            var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
 
             for (var i = 0; i < detail_introduce_text_animate.length; i++) {
                 if (scrollTop >= detail_introduce_text_animate[i].offsetTop - windowHeight + 200) {
@@ -236,7 +236,7 @@ window.onload = function () {
 
         var timer = null;
         window.addEventListener('scroll', function () {
-            var scrollTop = document.documentElement.scrollTop;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             if (scrollTop >= 100) {
                 returnTop.style.display = "block";
             } else {
@@ -246,7 +246,7 @@ window.onload = function () {
 
         returnTop.addEventListener('click', function () {
             clearInterval(timer)
-            var scrollTop = document.documentElement.scrollTop;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             var scrollValue = scrollTop;
             timer = setInterval(function () {
                 scrollValue -= Math.ceil(scrollValue / 10);
@@ -255,6 +255,7 @@ window.onload = function () {
                     clearInterval(timer)
                 }
                 document.documentElement.scrollTop = scrollValue;
+                document.body.scrollTop = scrollValue;
             }, 10)
         })
     }
