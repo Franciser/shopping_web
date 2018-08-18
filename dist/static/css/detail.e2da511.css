@@ -8,6 +8,9 @@ html,
 body {
   background-color: #f7f7f7;
 }
+img {
+  border: none;
+}
 ul {
   list-style-type: none;
 }
@@ -589,4 +592,4 @@ input::-webkit-input-placeholder {
   }
 }
 
-/*# sourceMappingURL=detail.86ffbfc.css.map*/
+/*# sourceMappingURL=detail.e2da511.css.map*/

@@ -11,6 +11,9 @@ body {
   overflow-x: hidden;
   width: 100vw;
 }
+img {
+  border: none;
+}
 ul {
   list-style-type: none;
 }
@@ -792,4 +795,4 @@ a {
   color: #cacaca;
 }
 
-/*# sourceMappingURL=index.86ffbfc.css.map*/
+/*# sourceMappingURL=index.e2da511.css.map*/
